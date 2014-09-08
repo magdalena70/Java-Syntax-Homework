@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+//Write a program to check whether a point is inside or outside of the
+//figure below. The point is given as a pair of floating-point numbers,
+//separated by a space. Your program should print "Inside" or "Outside".
+
+public class Problem3PointsinsideAFigure {
+
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		String[] points = input.nextLine().split(" ");
+		double pointX = Double.parseDouble(points[0]);
+		double pointY = Double.parseDouble(points[1]);
+		
+                //coordinates of points X are behind 12.5 - 22.5(including)
+		if(((pointX >= 12.5)&&(pointX <= 22.5))&&
+				((pointY >= 6.0)&&(pointY <= 8.5))){
+			System.out.print("Inside");
+		}else if(((pointX >= 12.5)&&(pointX <= 17.5))&&
+				 ((pointY >= 8.5)&&(pointY <= 13.5))){
+			System.out.print("Inside");
+		}else if(((pointX >= 20.0)&&(pointX <= 22.5))&&
+				 ((pointY >= 8.5)&&(pointY <= 13.5))){
+			System.out.print("Inside");
+		}else{
+			System.out.print("Outside");
+		}
+	}
+}
+// Input: Output:
+// 10 9.7 Outside
+// 12.5 6 Inside
+// 15.02 4.83 Outside
+// 17.5 13.5 Inside
+// 23.001 11.01 Outside
