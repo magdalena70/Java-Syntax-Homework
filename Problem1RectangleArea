@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+//Write a program that enters the sides of a rectangle
+//(two integers a and b) and calculates and prints the rectangle's area.
+
+public class Problem1RectangleArea {
+
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String[] rectSides = sc.nextLine().split(" ");
+		int sideA = Integer.parseInt(rectSides[0]);
+		int sideB = Integer.parseInt(rectSides[1]);
+		
+		int rectArea = (sideA * sideB);
+		System.out.print(rectArea);
+
+	}
+	
+	// Examples:
+	// Input	Output
+	//  7 20	 140
+	//  5 12	  60
+
+
+}
