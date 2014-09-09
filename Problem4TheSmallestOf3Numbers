@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+//Write a program that finds the smallest of three numbers. 
+
+public class Problem4TheSmallestOf3Numbers {
+
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		double c = input.nextDouble();
+		
+		double minNum = Math.min(a,Math.min(b,c));
+		if(minNum == (int)minNum){
+			System.out.print((int)minNum);
+		}else{
+			System.out.print(minNum);
+		}
+	}
+
+}
+//Examples:
+//a	   b	  c	  smallest
+//5	   2	  2	     2
+//2	   2	  1	     1
+//22   4      13	 4
+//0	  -2.5    -5	-5
+//-1.1 -0.5	  -0.1	-1.1
+
