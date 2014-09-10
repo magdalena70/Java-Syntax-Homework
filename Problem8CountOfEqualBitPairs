@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+//Write a program to count how many sequences of two equal bits
+//("00" or "11") can be found in the binary representation of
+//given integer number n (with overlapping).
+
+public class Problem8CountOfEqualBitPairs {
+	
+	 public static int countEqualBits(int number){
+		 	String bitNumber = Integer.toBinaryString(number);
+	        int count = 0;
+	        
+	        for(int i = 0; i < bitNumber.length()-1; i++){
+	            if((bitNumber.charAt(i)) == (bitNumber.charAt(i+1))) {
+	                count++;
+	            }	            
+	        }
+	        return count;
+	}
+
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int number = sc.nextInt();
+		
+		System.out.print(Integer.toBinaryString(number) + "  " + 
+				countEqualBits(number));	
+	}
+}
+//Examples:
+//n	        binary representation of n	  count
+//5	                   101	                0
+//0	                    0	                  0
+//15	                1111	                3
+//5343	         1010011011111	            6
+//62241	        1111001100100001	          9
