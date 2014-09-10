@@ -1,0 +1,63 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+//Write a program to check whether a point is inside or outside the house
+//below. The point is given as a pair of floating-point numbers, separated
+//by a space. Your program should print "Inside" or "Outside".
+
+public class Problem9PointsInsideTheHouse {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.ROOT);
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String[] points = sc.nextLine().split(" ");
+		double pointX = Double.parseDouble(points[0]);
+		double pointY = Double.parseDouble(points[1]);
+		
+		double pointAX = 12.5, pointAY = 8.5;
+		double pointBX = 17.5, pointBY = 3.5;
+		double pointCX = 22.5, pointCY = 8.5;
+		
+		//use the formula:
+		//area = ((Ax*(By - Cy)) + (Bx*(Cy - Ay)) + (Cx*(Ay - By)))/2
+		// where Ax and Ay are the x and y coordinates of the point A etc.
+		double areaABC = Math.abs(pointAX * (pointBY - pointCY) + 
+				pointBX * (pointCY - pointAY) +
+				pointCX * (pointAY - pointBY));
+		double areaABD = Math.abs(pointAX * (pointBY - pointY) +
+				pointBX * (pointY - pointAY) +
+				pointX * (pointAY - pointBY));
+        double areaADC = Math.abs(pointAX * (pointY - pointCY) +
+        		pointX * (pointCY - pointAY) +
+        		pointCX * (pointAY - pointY));
+        double areaDBC = Math.abs(pointX * (pointBY - pointCY) +
+        		pointBX * (pointCY - pointY) +
+        		pointCX * (pointY - pointBY));
+        boolean insideTriangle = false;
+        if (areaABD + areaADC + areaDBC == areaABC) {
+                insideTriangle = true;
+        }
+        
+		if(((pointX >= 12.5)&&(pointX <= 17.5))&&
+				((pointY <= 13.5)&&(pointY >= 8.5))){
+			System.out.print("Inside");
+		}else if(((pointX >= 20.0)&&(pointX <= 22.5))&&
+				((pointY <= 13.5)&&(pointY >= 8.5))){
+			System.out.print("Inside");
+		}else if(insideTriangle){
+			System.out.print("Inside");
+		}else{
+			System.out.print("Outside");
+		}
+		
+	}
+
+}
+//Examples:
+//Input	     Output		   Input	    Output	 
+//10 9.7     Outside       17.60 8.50   Inside
+//12.5 14.5  Outside       13.13 9.15   Inside
+//17.5 3     Outside       22.5 8.5     Inside
+//23 7.5     Outside       23.001 11.01 Outside
