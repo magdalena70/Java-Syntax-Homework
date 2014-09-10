@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+//Write a program to calculate the count of bits 1 in the binary
+//representation of given integer number n.
+
+public class Problem7CountOfBitsOne {
+	
+	 public static int countOne(int number){
+	        int count = 0;
+	        for(int i = 0; i < 32; i++){
+	            if((number & 1) == 1) {
+	                count++;
+	            }
+	            number = number >>> 1;
+	        }
+	        return count;
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int number = sc.nextInt();
+		
+		String binNumber = String.format(
+				"%16s", Integer.toBinaryString(number)).replace(" ","0");
+		System.out.print(binNumber + "  " + countOne(number);
+	}
+
+}
+//Examples:
+// n	   binary representation of n	    count
+// 5	       00000000 00000101	          2
+// 0	       00000000 00000000	          0
+//15	       00000000 00001111	          4
+//5343	     00010100 11011111	          9
+//62241	     11110011 00100001	          8
+//17263	     01000011 01101111	          9
+
